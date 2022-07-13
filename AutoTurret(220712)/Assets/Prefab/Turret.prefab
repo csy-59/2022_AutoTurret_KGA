@@ -291,8 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 6722594996312376328, guid: dbd2b0c5dc8f5534e93c2f522ccde20a, type: 3}
   BulletPosition: {fileID: 649645111848298238}
-  Target: {fileID: 0}
-  SpinSpeed: 1
+  SpinSpeed: 360
   MinShotTime: 0.5
   MaxShotTime: 0.9
 --- !u!114 &500845793709778142

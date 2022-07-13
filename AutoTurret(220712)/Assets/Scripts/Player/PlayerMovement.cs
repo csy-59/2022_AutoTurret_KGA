@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
         float speedX = Speed * input.X;
         float speedZ = Speed * input.Z;
 
+        // 교수님 코맨트: velocity를 이용하는 것이 더 자연스런 움직임을 줄 수 있음
         rigid.AddForce(speedX, 0f, speedZ);
     }
 }
