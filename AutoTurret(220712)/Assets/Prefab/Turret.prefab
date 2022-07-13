@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 649645112779615857}
   - component: {fileID: 649645112779615856}
   - component: {fileID: 649645112779615859}
+  - component: {fileID: 500845793709778142}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Turret
@@ -294,3 +295,15 @@ MonoBehaviour:
   SpinSpeed: 1
   MinShotTime: 0.5
   MaxShotTime: 0.9
+--- !u!114 &500845793709778142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649645112779615871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699aab7379bee2748944170a8af92152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
