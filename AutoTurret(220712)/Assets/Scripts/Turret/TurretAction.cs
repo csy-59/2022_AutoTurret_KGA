@@ -47,7 +47,7 @@ public class TurretAction : MonoBehaviour
             currentTime = 0f;
             shotRate = Random.Range(MinShotTime, MaxShotTime);
 
-            GameObject bullet = Instantiate(BulletPrefab, BulletPosition.position, transform.rotation);
+            Instantiate(BulletPrefab, BulletPosition.position, transform.rotation);
         }
     }
 
