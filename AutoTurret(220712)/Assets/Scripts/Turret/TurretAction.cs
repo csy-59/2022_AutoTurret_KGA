@@ -5,6 +5,8 @@ using UnityEngine;
 // 교수님 코맨트: ~Behaviour을 사용하지 않는 것이 좋다. 유니티에 중복 이름이 들어갈 수 있다.
 public class TurretAction : MonoBehaviour
 {
+    public GameObject Body;
+
     public GameObject BulletPrefab;
     public Transform BulletPosition;
 
@@ -38,7 +40,7 @@ public class TurretAction : MonoBehaviour
 
     private void ShotTarget()
     {
-        gameObject.transform.LookAt(sence.Target);
+        Body.transform.LookAt(sence.Target);
 
         // 교수님 코맨트: 관련있는 코드 끼리 묶어두기
         currentTime += Time.deltaTime;
@@ -47,14 +49,14 @@ public class TurretAction : MonoBehaviour
             currentTime = 0f;
             shotRate = Random.Range(MinShotTime, MaxShotTime);
 
-            Instantiate(BulletPrefab, BulletPosition.position, transform.rotation);
+            Instantiate(BulletPrefab, BulletPosition.position, Body.transform.rotation);
         }
     }
 
     private void Idle()
     {
         // 교수님 코맨트: 시간 당 회전으로 하는 것이 좋다. 역시 Time.delatime 곱해야한다.
-        transform.Rotate(0f, SpinSpeed * Time.deltaTime, 0f);
+        Body.transform.Rotate(0f, SpinSpeed * Time.deltaTime, 0f);
         currentTime = 0f;
     }
 }

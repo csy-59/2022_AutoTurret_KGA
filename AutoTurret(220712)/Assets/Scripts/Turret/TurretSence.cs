@@ -10,13 +10,34 @@ public class TurretSence : MonoBehaviour
     // 교수님 코맨트 Stay가 아니라 Enter가 더 좋을 듯. 
     // Stay는 플래이어가 죽었는지 살았는지 확인하는 용도로 사용하는 것이 좋다.
     // 활성화 확인하는 방법: Target.gameObject.activeSelf로 true false 받을 수 있다.
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
-            Target = other.gameObject.transform;
-            IsPlayerAround = true;
+            Vector3 distanceVector = other.transform.position - transform.position;
+            
+            Vector3 cross = Vector3.Cross(transform.forward.normalized, distanceVector.normalized);
+            float sin = cross.magnitude;
+
+            Debug.Log(cross.y);
+            if(cross.y > 0)
+            {
+                float cos = Vector3.Dot(transform.forward.normalized, distanceVector.normalized);
+                
+                Debug.Log($"Cos: {cos}, {Mathf.Cos(Mathf.PI / 3)}, {Mathf.Cos(0f)}");
+                Debug.Log($"Sin: {sin}, {Mathf.Sin(Mathf.PI / 3)}, {Mathf.Sin(0f)}");
+                if ((cos <= Mathf.Cos(0) && cos >= Mathf.Cos(Mathf.PI / 3)) && (sin >= Mathf.Sin(0) && sin <= Mathf.Sin(Mathf.PI / 3)))
+                {
+                    Target = other.gameObject.transform;
+                    IsPlayerAround = true;
+                }
+            }
+            else
+            {
+                IsPlayerAround = false;
+            }
         }
+        
     }
 
     private void OnTriggerExit(Collider other)
