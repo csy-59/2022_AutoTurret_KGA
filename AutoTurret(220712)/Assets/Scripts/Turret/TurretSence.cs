@@ -18,14 +18,10 @@ public class TurretSence : MonoBehaviour
             
             Vector3 cross = Vector3.Cross(transform.forward.normalized, distanceVector.normalized);
             float sin = cross.magnitude;
-
-            Debug.Log(cross.y);
             if(cross.y > 0)
             {
                 float cos = Vector3.Dot(transform.forward.normalized, distanceVector.normalized);
                 
-                Debug.Log($"Cos: {cos}, {Mathf.Cos(Mathf.PI / 3)}, {Mathf.Cos(0f)}");
-                Debug.Log($"Sin: {sin}, {Mathf.Sin(Mathf.PI / 3)}, {Mathf.Sin(0f)}");
                 if ((cos <= Mathf.Cos(0) && cos >= Mathf.Cos(Mathf.PI / 3)) && (sin >= Mathf.Sin(0) && sin <= Mathf.Sin(Mathf.PI / 3)))
                 {
                     Target = other.gameObject.transform;
